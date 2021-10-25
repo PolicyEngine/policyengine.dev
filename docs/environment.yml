@@ -1,0 +1,8 @@
+name: policyengine-dev
+channels:
+  - defaults
+dependencies:
+  - python=3.7
+  - pip:
+    - black>=21.9b0
+    - jupyter-book>=0.12.0

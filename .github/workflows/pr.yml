@@ -1,0 +1,27 @@
+name: Pull request
+on:
+  pull_request:
+    branches: [ master ]
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check formatting
+        uses: "lgeiger/black-action@master"
+        with:
+          args: ". -l 79 --check"
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: policyengine-dev
+          environment-file: docs/book/environment.yml
+          python-version: 3.7
+          auto-activate-base: false
+      - name: Test documentation builds
+        run: make
