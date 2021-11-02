@@ -20,7 +20,7 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           activate-environment: policyengine-dev
-          environment-file: docs/book/environment.yml
+          environment-file: docs/environment.yml
           python-version: 3.7
           auto-activate-base: false
       - name: Test documentation builds
