@@ -27,5 +27,7 @@ jobs:
           environment-file: docs/environment.yml
           python-version: 3.7
           auto-activate-base: false
+      - name: Build documentation
+        run: jb build docs
       - name: Test documentation builds
         run: make

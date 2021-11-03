@@ -28,6 +28,8 @@ jobs:
           python-version: 3.7
           auto-activate-base: false
       - name: Build documentation
+        run: jb build docs
+      - name: Build documentation
         run: make
       - name: Deploy documentation
         uses: JamesIves/github-pages-deploy-action@releases/v3
