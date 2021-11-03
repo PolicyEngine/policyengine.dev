@@ -17,17 +17,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Set up Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
           python-version: 3.7
-      - name: Setup Miniconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          activate-environment: policyengine-dev
-          environment-file: docs/environment.yml
-          python-version: 3.7
-          auto-activate-base: false
-      - name: Build documentation
-        run: jb build docs
+      - name: Install dependencies
+        run: make install
       - name: Test documentation builds
         run: make
