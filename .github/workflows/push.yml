@@ -16,6 +16,10 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
       - name: Setup Miniconda
         uses: conda-incubator/setup-miniconda@v2
         with:
