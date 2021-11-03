@@ -1,7 +1,7 @@
 name: Push
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   Lint:
     runs-on: ubuntu-latest
@@ -16,13 +16,12 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-      - name: Setup Miniconda
-        uses: conda-incubator/setup-miniconda@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          activate-environment: policyengine-dev
-          environment-file: docs/book/environment.yml
           python-version: 3.7
-          auto-activate-base: false
+      - name: Install dependencies
+        run: make install
       - name: Build documentation
         run: make
       - name: Deploy documentation
