@@ -31,4 +31,3 @@ jobs:
           branch: gh-pages
           publish_dir: docs/_build/html
           cname: policyengine.dev
-          
