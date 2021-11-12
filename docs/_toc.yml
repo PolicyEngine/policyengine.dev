@@ -1,4 +1,5 @@
 format: jb-book
 root: intro
 chapters:
-- file: OpenFisca
+- file: calendar
+- file: openfisca
